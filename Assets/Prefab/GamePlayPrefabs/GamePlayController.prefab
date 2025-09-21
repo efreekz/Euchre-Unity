@@ -1,0 +1,274 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &943891821018016928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7673085550207514980}
+  - component: {fileID: 3573230898079996399}
+  m_Layer: 0
+  m_Name: GamePlayController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7673085550207514980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943891821018016928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9123536084736441574}
+  - {fileID: 3111493346002312544}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3573230898079996399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943891821018016928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5701fdd8eb92a242985d510e56b82ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameMode: 0
+  cardsController: {fileID: 9191601677771296540}
+  playerManager: {fileID: 2021234026208793787}
+  cardDistributionAnimationTime: 0.1
+--- !u!1 &5513852070885571844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3111493346002312544}
+  - component: {fileID: 2021234026208793787}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3111493346002312544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513852070885571844}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7673085550207514980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2021234026208793787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513852070885571844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b920080d40e49541849318b6a664d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayerPrefab: {fileID: 2805387746469607323, guid: 7f0244c8d523ea54c936053f3ddedf4a, type: 3}
+  botPlayerPrefab: {fileID: 1834260495279228836, guid: d43a1ee5e64b6354eb824b213bf98d50, type: 3}
+  dealerIndex: 3
+--- !u!1 &7260703816509272131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9123536084736441574}
+  - component: {fileID: 9191601677771296540}
+  m_Layer: 0
+  m_Name: CardController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9123536084736441574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260703816509272131}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7673085550207514980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9191601677771296540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260703816509272131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0606479f54b28b0498f27647c26df511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards:
+  - suit: 0
+    rank: 0
+    sprite: {fileID: -9180482913087526763, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 0
+    rank: 1
+    sprite: {fileID: -3260350533219176807, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 0
+    rank: 2
+    sprite: {fileID: -1653327901173135069, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 0
+    rank: 3
+    sprite: {fileID: 5827190069618263385, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 0
+    rank: 4
+    sprite: {fileID: 8446585319258339084, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 0
+    rank: 5
+    sprite: {fileID: -3502424558361539742, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 0
+    sprite: {fileID: 2741348623263493724, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 1
+    sprite: {fileID: -4920297041595071129, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 2
+    sprite: {fileID: -3181766010911794911, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 3
+    sprite: {fileID: -2038757103190822604, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 4
+    sprite: {fileID: -4601399858215464021, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 1
+    rank: 5
+    sprite: {fileID: 3068887291422783032, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 2
+    rank: 0
+    sprite: {fileID: -4835812078407406434, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 1
+    isFaceUp: 0
+  - suit: 2
+    rank: 1
+    sprite: {fileID: 5910543315337943415, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 1
+    isFaceUp: 0
+  - suit: 2
+    rank: 2
+    sprite: {fileID: 1509981241815906335, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 1
+    isFaceUp: 0
+  - suit: 2
+    rank: 3
+    sprite: {fileID: -7235343201046362658, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 1
+    isFaceUp: 0
+  - suit: 2
+    rank: 4
+    sprite: {fileID: 1758922097055270408, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 2
+    rank: 5
+    sprite: {fileID: -5297692839718645536, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 0
+    sprite: {fileID: 8381711991927941154, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 1
+    sprite: {fileID: -4344796705275831136, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 2
+    sprite: {fileID: -6800584922860337952, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 3
+    sprite: {fileID: 5892981510886920187, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 4
+    sprite: {fileID: 9136615021833677593, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 0
+    isFaceUp: 0
+  - suit: 3
+    rank: 5
+    sprite: {fileID: -7502329690989343480, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+    color: 1
+    isFaceUp: 0
+  suits:
+  - suit: 0
+    sprite: {fileID: 7699464650255218794, guid: dee225569dcbfdf48a275b8785c035fd, type: 3}
+  - suit: 1
+    sprite: {fileID: -2667491853917480222, guid: dee225569dcbfdf48a275b8785c035fd, type: 3}
+  - suit: 2
+    sprite: {fileID: 194554258423437636, guid: dee225569dcbfdf48a275b8785c035fd, type: 3}
+  - suit: 3
+    sprite: {fileID: 2447294722448472160, guid: dee225569dcbfdf48a275b8785c035fd, type: 3}
+  cardPrefab: {fileID: 6349817318608681691, guid: b962e558256f0454c8d881009b33a5cb, type: 3}

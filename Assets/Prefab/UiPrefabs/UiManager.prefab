@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3515809907901878449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8110323202667226499}
+  - component: {fileID: 7055555227187234124}
+  m_Layer: 0
+  m_Name: UiManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8110323202667226499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515809907901878449}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 690, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7055555227187234124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515809907901878449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a451adec3b38cc847b5a5748f8592acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneData:
+  - sceneName: 0
+    canvasPrefab: {fileID: 5396767209435824198, guid: 7ff023955d6ee774bb5c6c263205033c, type: 3}
+    startingScreen: 0
+    viewsData:
+    - {fileID: 2800252611280240812, guid: e3b22a99a786f584e81f9adadc7ec8a2, type: 3}
+    - {fileID: 5377789323419328253, guid: 10cb7edee4f260a46b4d6387d54a6243, type: 3}
+    - {fileID: 4944950662478243555, guid: 9eb4edc029e53254690a224f0f0212a5, type: 3}
+  - sceneName: 1
+    canvasPrefab: {fileID: 5396767209435824198, guid: 7ff023955d6ee774bb5c6c263205033c, type: 3}
+    startingScreen: 6
+    viewsData:
+    - {fileID: 3004083756775329565, guid: 63b51bb954d37aa49a2bdc0afef94e50, type: 3}
+    - {fileID: 1205821348795003831, guid: ae9fadb6b1477264d99a2fe848c3eb40, type: 3}
+    - {fileID: 5032026284817189162, guid: ddf5401824e4f484990f171c2e09e06d, type: 3}
+    - {fileID: 7756994583469115274, guid: 83f9216531c675c40bf718cb61b8b17f, type: 3}
+    - {fileID: 5192005656795136084, guid: ce8a164294f80e74dab6ec17652ca5a3, type: 3}
+    - {fileID: 4944950662478243555, guid: 9eb4edc029e53254690a224f0f0212a5, type: 3}
+  - sceneName: 2
+    canvasPrefab: {fileID: 5396767209435824198, guid: 7ff023955d6ee774bb5c6c263205033c, type: 3}
+    startingScreen: 14
+    viewsData:
+    - {fileID: 8326960407494102380, guid: 9ecabfde2ae16484c9ede2e8bd7e6548, type: 3}
+    - {fileID: 165038881536019146, guid: 2cdfbf1c2ddf7ef4e96195f1ca800ec8, type: 3}
+    - {fileID: 4009558640456576598, guid: 15628b84ffaf3e24f8f7ee363009e684, type: 3}
+    - {fileID: -3981962076482318922, guid: a951120f5adb48445bad27d8addc80c7, type: 3}
+    - {fileID: 6449562842990676385, guid: 90c40a0de1827dc4ca55725baedd50e9, type: 3}
+    - {fileID: 292297102943541320, guid: e47fdd47f2ac2f54a9933f98c7d7194d, type: 3}
+  toastPrefab: {fileID: 1864518376542820117, guid: 6546a36b3555d374a8b1868e72c0497e, type: 3}

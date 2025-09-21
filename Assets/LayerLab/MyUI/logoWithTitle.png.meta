@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: b8b92df928759a44697ee55d5807efa9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3553935035502987025
+    second: jackeuchre_0
+  - first:
+      213: 1802844728896083284
+    second: jackeuchre_1
+  - first:
+      213: -7820374919767205096
+    second: jackeuchre_2
+  - first:
+      213: -4010677972365591134
+    second: jackeuchre_3
+  - first:
+      213: -5441515440235199922
+    second: jackeuchre_4
+  - first:
+      213: -1562398649913631320
+    second: jackeuchre_5
+  - first:
+      213: 2975711151981722018
+    second: jackeuchre_6
+  - first:
+      213: -3774234718006618108
+    second: jackeuchre_7
+  - first:
+      213: -5516461470400962563
+    second: jackeuchre_8
+  - first:
+      213: -4309273629889067292
+    second: jackeuchre_9
+  - first:
+      213: -1313600772041416456
+    second: jackeuchre_10
+  - first:
+      213: 7810119874767246814
+    second: jackeuchre_11
+  - first:
+      213: 2199498902333469326
+    second: jackeuchre_12
+  - first:
+      213: -4263745853473920042
+    second: jackeuchre_13
+  - first:
+      213: 7828835008007963601
+    second: jackeuchre_14
+  - first:
+      213: 1943893716821111134
+    second: jackeuchre_15
+  - first:
+      213: 4892828993409151984
+    second: jackeuchre_16
+  - first:
+      213: -7098926099161447958
+    second: jackeuchre_17
+  - first:
+      213: -5165707564457133538
+    second: jackeuchre_18
+  - first:
+      213: -6345006885930771036
+    second: jackeuchre_19
+  - first:
+      213: -4358893406060700529
+    second: jackeuchre_20
+  - first:
+      213: -8397763093406790529
+    second: jackeuchre_21
+  - first:
+      213: -4134743857402829855
+    second: jackeuchre_22
+  - first:
+      213: -6800804870049340120
+    second: jackeuchre_23
+  - first:
+      213: -7749448244643098871
+    second: jackeuchre_24
+  - first:
+      213: 566401648931511299
+    second: jackeuchre_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: jackeuchre_0
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 994
+        width: 112
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11788f1d51d125130800000000000000
+      internalID: 3553935035502987025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 612
+        height: 1218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4555903aabdf40910800000000000000
+      internalID: 1802844728896083284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_2
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1028
+        width: 97
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81bd6e0d172787390800000000000000
+      internalID: -7820374919767205096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 933
+        width: 116
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad3aa432a53758c0800000000000000
+      internalID: -4010677972365591134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 871
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e424af8998adb74b0800000000000000
+      internalID: -5441515440235199922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_5
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 930
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad1952b4be315ae0800000000000000
+      internalID: -1562398649913631320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_6
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 865
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9f908d689db4920800000000000000
+      internalID: 2975711151981722018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 795
+        width: 121
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408d44e45893f9bc0800000000000000
+      internalID: -3774234718006618108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_8
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 785
+        width: 84
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff1f9725879173b0800000000000000
+      internalID: -5516461470400962563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_9
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 720
+        width: 91
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6018217726234c0800000000000000
+      internalID: -4309273629889067292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_10
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 709
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0eacdbe0725cde0800000000000000
+      internalID: -1313600772041416456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 641
+        width: 85
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed558b475ae136c60800000000000000
+      internalID: 7810119874767246814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_12
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 631
+        width: 124
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82b2752990368e10800000000000000
+      internalID: 2199498902333469326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_13
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 556
+        width: 125
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db642f8cb124d4c0800000000000000
+      internalID: -4263745853473920042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_14
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 493
+        width: 94
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d30579f5fb95ac60800000000000000
+      internalID: 7828835008007963601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_15
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 549
+        width: 85
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e517c3849091afa10800000000000000
+      internalID: 1943893716821111134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_16
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 401
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f372e2db02d6e340800000000000000
+      internalID: 4892828993409151984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_17
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 480
+        width: 91
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae18bb4135c8b7d90800000000000000
+      internalID: -7098926099161447958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_18
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 446
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1afbf6d658bf48b0800000000000000
+      internalID: -5165707564457133538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_19
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 396
+        width: 120
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad50b2cad102f7a0800000000000000
+      internalID: -6345006885930771036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 320
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c95f5aa891283c0800000000000000
+      internalID: -4358893406060700529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_21
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 239
+        width: 117
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c4a95b5f6257b80800000000000000
+      internalID: -8397763093406790529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_22
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 253
+        width: 88
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3a6465e507e96c0800000000000000
+      internalID: -4134743857402829855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_23
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 334
+        width: 88
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82566fdb000be91a0800000000000000
+      internalID: -6800804870049340120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_24
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 159
+        width: 99
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f06cc31ed647490800000000000000
+      internalID: -7749448244643098871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jackeuchre_25
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 171
+        width: 112
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c12cc7c434cd700800000000000000
+      internalID: 566401648931511299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      jackeuchre_0: 3553935035502987025
+      jackeuchre_1: 1802844728896083284
+      jackeuchre_10: -1313600772041416456
+      jackeuchre_11: 7810119874767246814
+      jackeuchre_12: 2199498902333469326
+      jackeuchre_13: -4263745853473920042
+      jackeuchre_14: 7828835008007963601
+      jackeuchre_15: 1943893716821111134
+      jackeuchre_16: 4892828993409151984
+      jackeuchre_17: -7098926099161447958
+      jackeuchre_18: -5165707564457133538
+      jackeuchre_19: -6345006885930771036
+      jackeuchre_2: -7820374919767205096
+      jackeuchre_20: -4358893406060700529
+      jackeuchre_21: -8397763093406790529
+      jackeuchre_22: -4134743857402829855
+      jackeuchre_23: -6800804870049340120
+      jackeuchre_24: -7749448244643098871
+      jackeuchre_25: 566401648931511299
+      jackeuchre_3: -4010677972365591134
+      jackeuchre_4: -5441515440235199922
+      jackeuchre_5: -1562398649913631320
+      jackeuchre_6: 2975711151981722018
+      jackeuchre_7: -3774234718006618108
+      jackeuchre_8: -5516461470400962563
+      jackeuchre_9: -4309273629889067292
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
