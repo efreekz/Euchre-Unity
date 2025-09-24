@@ -122,5 +122,13 @@ namespace GamePlay.Cards
         {
             return cardData.suit == trumpSuit || IsLeftBower(trumpSuit);
         }
+        
+        public Suit GetEffectiveSuit(Suit trumpSuit)
+        {
+            // Left bower is treated as trump suit for follow-suit purposes
+            if (IsLeftBower(trumpSuit))
+                return trumpSuit;
+            return cardData.suit;
+        }
     }
 }

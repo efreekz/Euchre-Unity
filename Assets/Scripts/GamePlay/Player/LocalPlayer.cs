@@ -26,6 +26,25 @@ namespace GamePlay.Player
             var playableCards = CheckPlayableCards();
             var tcs = new UniTaskCompletionSource<Card>();
 
+            // Auto-play if only one card is playable (last card or forced play)
+            if (playableCards.Count == 1)
+            {
+                var autoCard = playableCards[0];
+                
+                // Small delay to make auto-play feel natural
+                await UniTask.Delay(500, cancellationToken: GamePlayController.CancellationTokenSource.Token);
+                
+                if (GamePlayController.Instance.CurrentTrickSuit == Suit.None)
+                    GamePlayController.Instance.CurrentTrickSuit = autoCard.cardData.suit;
+
+                hand.Remove(autoCard);
+
+                await AnimateCardPlay(autoCard);
+                PlayerElementUi.EndTurn();
+                return autoCard;
+            }
+
+            // Manual selection for multiple cards
             foreach (var card in playableCards)
             {
                 card.SetInteractable(true);

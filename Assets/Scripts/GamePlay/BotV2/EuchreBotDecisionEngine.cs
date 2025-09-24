@@ -3,9 +3,8 @@ using System.Linq;
 using GamePlay.Cards;
 using UnityEngine;
 using System;
-using GamePlay.Bot;
 
-namespace GamePlay.BotV2
+namespace GamePlay.Bot
 {
     /// <summary>
     /// Elite Euchre Bot Decision Engine - Phase 2: Neural Network Insights
@@ -62,7 +61,7 @@ namespace GamePlay.BotV2
 
             // Opponent modeling and behavioral prediction
             var opponentModel = AnalyzeOpponentBehavior(gameState);
-            GameLogger.ShowLog($"🧠 NEURAL NETWORK: Opponent aggression factor: {OpponentModel.AggressionFactor:F3}");
+            GameLogger.ShowLog($"🧠 NEURAL NETWORK: Opponent aggression factor: {opponentModel.AggressionFactor:F3}");
             
             var moveResults = new Dictionary<CardData, List<float>>();
 
@@ -108,6 +107,67 @@ namespace GamePlay.BotV2
 
             return bestMove;
         }
+
+        // public CardData SelectCardToPlay(GameState gameState)
+        // {
+        //     GameLogger.ShowLog("Starting MCTS decision for bot...");
+        //
+        //     var validMoves = GameSimulator.GetValidMoves(gameState.Hand, gameState.TrickSuit);
+        //
+        //     if (validMoves.Count == 1)
+        //     {
+        //         GameLogger.ShowLog($"Only one valid move: {validMoves[0]}");
+        //         return validMoves[0];
+        //     }
+        //
+        //     var root = new TreeNode(null, null);
+        //
+        //     for (int i = 0; i < _simulationCount; i++)
+        //     {
+        //         GameLogger.ShowLog($"--- Simulation {i + 1}/{_simulationCount} ---");
+        //
+        //         var simulatedGameState = GameSimulator.DeterminizeGame(gameState);
+        //         var node = root;
+        //
+        //         // 1. Selection
+        //         while (node.IsFullyExpanded(validMoves))
+        //         {
+        //             node = node.BestUct();
+        //             GameLogger.ShowLog($"--- UCT {node.Uct(node)}");
+        //             GameSimulator.ApplyMove(simulatedGameState, node.Move);
+        //             GameLogger.ShowLog($"Selection: Applied move {node.Move}");
+        //         }
+        //
+        //         // 2. Expansion
+        //         var triedMoves = node.Children.Select(c => c.Move).ToHashSet();
+        //         var untriedMoves = validMoves.Where(m => !triedMoves.Contains(m)).ToList();
+        //
+        //         if (untriedMoves.Count > 0)
+        //         {
+        //             GameLogger.ShowLog($"--- Expansion: Untried Moves : {untriedMoves.Count}");
+        //             var move = untriedMoves[Random.Range(0, untriedMoves.Count)];
+        //             GameSimulator.ApplyMove(simulatedGameState, move);
+        //
+        //             var child = new TreeNode(move, node);
+        //             node.Children.Add(child);
+        //             node = child;
+        //
+        //             GameLogger.ShowLog($"Added child node with move {move}");
+        //         }
+        //
+        //         // 3. Simulation
+        //         float result = GameSimulator.SimulatePlayout(simulatedGameState, gameState.TrumpSuit, gameState.TeamNumber);
+        //         GameLogger.ShowLog($"Simulation result: Bot team score = {result}");
+        //
+        //         // 4. Backpropagation
+        //         GameSimulator.Backpropagate(node, result);
+        //         GameLogger.ShowLog($"Backpropagation complete for simulation {i + 1}");
+        //     }
+        //
+        //     var best = root.BestChild();
+        //     GameLogger.ShowLog($"Best move selected: {best.Move} with {best.Visits} visits and win score {best.Wins}");
+        //     return best.Move;
+        // }
 
         public Suit ChooseTrump(GameState gameState)
         {
@@ -156,7 +216,49 @@ namespace GamePlay.BotV2
             
             return shouldAccept;
         }
-        
+
+        // public (Card cardToDiscard, Card cardToPickup) ExchangeTrumpCard(GameState gameState, Card topKittyCard)
+        // {
+        //     GameLogger.ShowLog("ExchangeTrumpCard called (not implemented yet)", GameLogger.LogType.Warning);
+        //     return (null, null);
+        // }
+
+        public class TreeNode
+        {
+            public CardData Move;
+            public TreeNode Parent;
+            public List<TreeNode> Children = new();
+            public int Visits = 0;
+            public float Wins = 0;
+
+            public TreeNode(CardData move, TreeNode parent)
+            {
+                Move = move;
+                Parent = parent;
+            }
+
+            public bool IsFullyExpanded(List<CardData> validMoves) =>
+                Children.Count == validMoves.Count;
+
+            public TreeNode BestChild() =>
+                Children.OrderByDescending(c => c.Visits).First();
+
+            public TreeNode BestUct()
+            {
+                return Children
+                    .OrderByDescending(Uct)
+                    .First();
+            }
+
+            public float Uct(TreeNode node)
+            {
+                if (node.Visits == 0)
+                    return float.MaxValue;
+
+                return (node.Wins / node.Visits) + _uctC * Mathf.Sqrt(Mathf.Log(this.Visits) / node.Visits);
+            }
+        }
+
         private List<CardData> GetValidMovesWrapper(List<CardData> hand, Suit trickSuit, Suit trumpSuit)
         {
             return GameSimulator.GetValidMoves(hand, trickSuit, trumpSuit);
@@ -232,7 +334,7 @@ namespace GamePlay.BotV2
         /// <summary>
         /// Enhanced simulation with position-aware strategy and partner coordination
         /// </summary>
-        private float SimulateWithPositionAwareness(SimulatedGameState simulatedState, GameState originalState, CardData move)
+        private float SimulateWithPositionAwareness(GameState simulatedState, GameState originalState, CardData move)
         {
             // Get base simulation result
             float baseResult = GameSimulator.SimulatePlayout(simulatedState, originalState.TrumpSuit, originalState.TeamNumber);
@@ -490,10 +592,10 @@ namespace GamePlay.BotV2
         /// <summary>
         /// OpponentModel class for behavioral prediction
         /// </summary>
-        private class OpponentModel
+        public class OpponentModel
         {
-            public static float AggressionFactor => 0.5f;
-            // public float TrumpPreference { get; set; } = 0.5f;
+            public float AggressionFactor { get; set; } = 0.5f;
+            public float TrumpPreference { get; set; } = 0.5f;
             public float RiskTolerance { get; set; } = 0.5f;
         }
 
@@ -504,16 +606,16 @@ namespace GamePlay.BotV2
         {
             var model = new OpponentModel();
 
-            // Basic opponent modeling from available game stateeeeeeeeeeeeeeeeeeeeeeeeeeee
+            // Basic opponent modeling from available game state
             int estimatedTricksPlayed = gameState.PlayedCards?.Count / 4 ?? 0;
             
             // Late game increases risk tolerance
             if (estimatedTricksPlayed >= 4)
                 model.RiskTolerance += 0.15f;
 
-            // // Trump usage analysis
-            // if (gameState.TrumpSuit != Suit.None)
-            //     model.TrumpPreference = 0.6f; // Assume moderate trump preference
+            // Trump usage analysis
+            if (gameState.TrumpSuit != Suit.None)
+                model.TrumpPreference = 0.6f; // Assume moderate trump preference
 
             return model;
         }
@@ -530,7 +632,7 @@ namespace GamePlay.BotV2
                 neuralAdjustment += PATTERN_RECOGNITION_BOOST;
 
             // Opponent modeling adjustments
-            if (OpponentModel.AggressionFactor > 0.6f && move.IsTrump(gameState.TrumpSuit))
+            if (opponentModel.AggressionFactor > 0.6f && move.IsTrump(gameState.TrumpSuit))
                 neuralAdjustment += OPPONENT_MODELING_FACTOR * 0.8f; // Counter-aggressive play
 
             // Endgame specific neural patterns
@@ -580,7 +682,7 @@ namespace GamePlay.BotV2
                 }
 
                 // Opponent modeling influence
-                if (OpponentModel.AggressionFactor > 0.7f)
+                if (opponentModel.AggressionFactor > 0.7f)
                     neuralScore += move.IsTrump(gameState.TrumpSuit) ? 0.06f : 0f;
 
                 moveScores[move] = neuralScore;

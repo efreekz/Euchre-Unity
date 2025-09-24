@@ -19,7 +19,7 @@ namespace Ui.GamePlayScreens
         [SerializeField] private Button orderUpAndGoAloneButton;
         [SerializeField] private Image suitImage;
         [SerializeField] private Slider timer;
-        [SerializeField] private float time = 10f;
+        [SerializeField] private float time = 20f;
 
         private float _timeToPass; 
         private Card _selectedCard;

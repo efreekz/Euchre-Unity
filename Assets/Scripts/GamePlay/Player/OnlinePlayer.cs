@@ -31,10 +31,33 @@ namespace GamePlay.Player
             var tcs = new UniTaskCompletionSource<Card>();
             var cts = new CancellationTokenSource();
 
-            // Start UI timer
+            // Auto-play if only one card is playable (last card or forced play)
+            if (playableCards.Count == 1)
+            {
+                var autoCard = playableCards[0];
+                
+                // Small delay to make auto-play feel natural
+                await UniTask.Delay(500, cancellationToken: GamePlayControllerNetworked.CancellationTokenSource.Token);
+                
+                hand.Remove(autoCard);
+
+                var cardString = JsonConvert.SerializeObject(new CardDataDto()
+                {
+                    rank = autoCard.cardData.rank,
+                    suit = autoCard.cardData.suit
+                });
+                RPC_PlayCard(PlayerIndex, cardString);
+
+                GamePlayControllerNetworked.Instance.currentTrickCards[PlayerIndex] = autoCard;
+
+                await AnimateCardPlay(autoCard);
+                return autoCard;
+            }
+
+            // Start UI timer for manual selection
             PlayerElementUi.StartTurnTimer(time, cts.Token);
 
-            // Setup manual selection
+            // Setup manual selection for multiple cards
             foreach (var card in playableCards)
             {
                 card.SetInteractable(true);

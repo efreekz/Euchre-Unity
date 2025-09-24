@@ -60,7 +60,7 @@ namespace GamePlay.Player
             set
             {
                 _trickWon = value;
-                // PlayerElementUi.SetTrickCount(_trickWon);
+                PlayerElementUi.SetTrickCount(_trickWon);
             }
         }
 
@@ -166,15 +166,15 @@ namespace GamePlay.Player
 
             foreach (var card in hand)
             {
-                var effectiveSuit = card.cardData.GetEffectiveSuit(trumpSuit);
-
                 if (hasMatchingSuit)
                 {
-                    if (effectiveSuit == currentSuit)
+                    // Must play cards that match the effective suit (including bowers as trump)
+                    if (card.cardData.GetEffectiveSuit(trumpSuit) == currentSuit)
                         playable.Add(card);
                 }
                 else
                 {
+                    // Can play any card if we can't follow suit
                     playable.Add(card);
                 }
             }
