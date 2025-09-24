@@ -77,7 +77,7 @@ namespace GamePlay.Player
             {
                 AssignTeams();
                 
-                DealerIndex = Random.Range(0, 4);
+                DealerIndex = -1; // Will be set properly in SetupDealer
                 
                 Initialized = true;
             }

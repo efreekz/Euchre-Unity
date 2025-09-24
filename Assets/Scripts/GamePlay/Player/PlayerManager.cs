@@ -84,6 +84,11 @@ namespace GamePlay.Player
             dealerIndex = Random.Range(0, 4);
         }
 
+        public void AdvanceDealer()
+        {
+            dealerIndex = (dealerIndex + 1) % 4;
+        }
+
         public List<PlayerBase> GetPlayers() => _players;
         public PlayerBase GetPlayer(int index) => _players[index];
         public PlayerBase GetDealerPlayer() => _players[dealerIndex];

@@ -166,7 +166,15 @@ namespace Controllers
         {
             if (Runner.IsServer || HasStateAuthority)
             {
-                playerManager.DealerIndex = Random.Range(0, 4);
+                // Rotate dealer clockwise each hand (or random for first hand)
+                if (playerManager.DealerIndex == -1) // First hand
+                {
+                    playerManager.DealerIndex = Random.Range(0, 4);
+                }
+                else // Subsequent hands - rotate clockwise
+                {
+                    playerManager.DealerIndex = (playerManager.DealerIndex + 1) % 4;
+                }
                 RPC_AssignDealerNotification(playerManager.DealerIndex);
             }
 
@@ -188,18 +196,23 @@ namespace Controllers
             {
                 const int cardsPerPlayer = 5;
 
+                // Deal cards starting from player to left of dealer (proper Euchre rotation)
+                int startPlayerIndex = (playerManager.DealerIndex + 1) % 4;
+
                 for (int i = 0; i < players.Count; i++)
                 {
-                    var player = players[i];
+                    int playerIndex = (startPlayerIndex + i) % 4; // Rotate properly from left of dealer
+                    var player = players[playerIndex];
                     var playerCards = new List<CardData>();
 
                     for (int j = 0; j < cardsPerPlayer; j++)
                     {
-                        if (shuffledDeck[i + j * players.Count].cardData is null)
+                        int cardIndex = i + j * players.Count; // Card distribution index
+                        if (shuffledDeck[cardIndex].cardData is null)
                         {
-                            GameLogger.ShowLog($"Card at index {i + j * players.Count} is null");
+                            GameLogger.ShowLog($"Card at index {cardIndex} is null");
                         }
-                        playerCards.Add(shuffledDeck[i + j * players.Count].cardData);
+                        playerCards.Add(shuffledDeck[cardIndex].cardData);
                     }
 
                     if (player.IsBot)
@@ -474,6 +487,7 @@ namespace Controllers
                 var makersTeam = playerManager.TeamA;
                 var defendersTeam = playerManager.TeamB;
                 makersTeam.teamType = TeamType.Makers;
+                defendersTeam.teamType = TeamType.Defenders;
                 makersTeam.willGoAlone = willGoAlone;
                 playerManager.TeamA = makersTeam;
                 playerManager.TeamB = defendersTeam;
@@ -483,6 +497,7 @@ namespace Controllers
                 var makersTeam = playerManager.TeamB;
                 var defendersTeam = playerManager.TeamA;
                 makersTeam.teamType = TeamType.Makers;
+                defendersTeam.teamType = TeamType.Defenders;
                 makersTeam.willGoAlone = willGoAlone;
                 playerManager.TeamB = makersTeam;
                 playerManager.TeamA = defendersTeam;
@@ -668,6 +683,16 @@ namespace Controllers
                 player.IsDisabled = false;
                 player.ResetUiElement();
             }
+            
+            // Reset team states for next hand
+            var teamA = playerManager.TeamA;
+            var teamB = playerManager.TeamB;
+            teamA.teamType = TeamType.Defenders; // Reset to default
+            teamA.willGoAlone = false;
+            teamB.teamType = TeamType.Defenders; // Reset to default  
+            teamB.willGoAlone = false;
+            playerManager.TeamA = teamA;
+            playerManager.TeamB = teamB;
             
             _trumpSelectionData = null;
             

@@ -81,7 +81,7 @@ namespace Controllers
 
         private async UniTask StartGameSequence()
         {
-            while (playerManager.TeamAScore() < 10 || playerManager.TeamBScore() < 10)
+            while (playerManager.TeamAScore() < 10 && playerManager.TeamBScore() < 10)
             {
                 await DistributeCardsAnimated();
                 await SetupTrumpCard();
@@ -100,6 +100,15 @@ namespace Controllers
                 player.IsDisabled = false;
                 player.ResetUiElement();
             }
+
+            // Reset team states for next hand
+            playerManager.TeamA.teamType = TeamType.Defenders; // Reset to default
+            playerManager.TeamA.willGoAlone = false;
+            playerManager.TeamB.teamType = TeamType.Defenders; // Reset to default
+            playerManager.TeamB.willGoAlone = false;
+
+            // Advance dealer to next player clockwise
+            playerManager.AdvanceDealer();
 
             foreach (var card in _kitty)
             {
@@ -123,16 +132,20 @@ namespace Controllers
             var playerCount = players.Count;
             const int cardsPerPlayer = 5;
 
+            // Deal cards starting from player to left of dealer (proper Euchre rotation)
+            int startPlayerIndex = (playerManager.dealerIndex + 1) % 4;
+
             for (var i = 0; i < cardsPerPlayer; i++)
             {
                 for (var j = 0; j < playerCount; j++)
                 {
+                    int playerIndex = (startPlayerIndex + j) % 4; // Rotate properly from left of dealer
                     var cardIndex = i * playerCount + j;
                     if (cardIndex >= shuffledDeck.Count) continue;
 
                     var card = shuffledDeck[cardIndex];
-                    players[j].hand.Add(card);
-                    await players[j].AddCardToHandUI(card, cardDistributionAnimationTime);
+                    players[playerIndex].hand.Add(card);
+                    await players[playerIndex].AddCardToHandUI(card, cardDistributionAnimationTime);
                 }
             }
 
