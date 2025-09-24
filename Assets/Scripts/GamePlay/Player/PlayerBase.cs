@@ -162,11 +162,11 @@ namespace GamePlay.Player
                 return playable.ToArray();
             }
 
-            var hasMatchingSuit = hand.Any(card => GetEffectiveSuit(card.cardData) == currentSuit);
+            var hasMatchingSuit = hand.Any(card => card.cardData.GetEffectiveSuit(trumpSuit) == currentSuit);
 
             foreach (var card in hand)
             {
-                var effectiveSuit = GetEffectiveSuit(card.cardData);
+                var effectiveSuit = card.cardData.GetEffectiveSuit(trumpSuit);
 
                 if (hasMatchingSuit)
                 {
@@ -180,25 +180,6 @@ namespace GamePlay.Player
             }
 
             return playable.ToArray();
-
-            Suit GetEffectiveSuit(CardData cardData)
-            {
-                return cardData.rank switch
-                {
-                    Rank.Jack when cardData.suit == trumpSuit => trumpSuit,
-                    Rank.Jack when IsSameColor(cardData.suit, trumpSuit) => trumpSuit,
-                    _ => cardData.suit
-                };
-            }
-
-            bool IsSameColor(Suit suit1, Suit suit2)
-            {
-                return suit1 is Suit.Clubs or Suit.Spades &&
-                       suit2 is Suit.Clubs or Suit.Spades
-                       ||
-                       suit1 is Suit.Hearts or Suit.Diamonds &&
-                       suit2 is Suit.Hearts or Suit.Diamonds;
-            }
         }
 
 

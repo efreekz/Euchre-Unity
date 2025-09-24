@@ -32,7 +32,7 @@ namespace GamePlay.Player
             RevealHand(handIsFaceUp);
         
             var botGameState = BuildBotGameState(); // Helper method to extract state
-            var decisionEngine = new EuchreBotDecisionEngine(simulationCount, uctC);
+            var decisionEngine = new GamePlay.BotV2.EuchreBotDecisionEngine(simulationCount, uctC);
         
             // Run the heavy decision-making logic in a background thread
             var selectedCardData = decisionEngine.SelectCardToPlay(botGameState);
@@ -91,7 +91,8 @@ namespace GamePlay.Player
                 BotPlayerIndex = PlayerIndex,
                 AllPlayers = playerSummaries,
                 TeamNumber = PlayerIndex % 2,
-                Kitty = gameController.kitty.Select(card => card.cardData).ToList()
+                Kitty = gameController.kitty.Select(card => card.cardData).ToList(),
+                TeamScore = gameController.playerManager.GetMyTeam(PlayerIndex).score
             };
         }
 

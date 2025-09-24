@@ -7,8 +7,8 @@ public static class GameLogger
     private static readonly bool IsTestingNetwork; // Change this to false in production builds
     static GameLogger()
     {
-        IsTesting = false;
-        IsTestingNetwork = true;
+        IsTesting = true;
+        IsTestingNetwork = false;
     }
 
     public enum LogType

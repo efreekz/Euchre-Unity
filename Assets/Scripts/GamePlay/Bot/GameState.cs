@@ -14,6 +14,6 @@ namespace GamePlay.Bot
         public List<PlayerSummary> AllPlayers;
         public int TeamNumber;
         public List<CardData> Kitty;
-
+        public int TeamScore;
     }
 }

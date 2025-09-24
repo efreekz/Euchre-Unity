@@ -43,12 +43,12 @@ namespace GamePlay.Cards
             return 10 + (int)rank; // Non-trump, non-lead suit
         }
 
-        private bool IsRightBower(Suit trumpSuit)
+        public bool IsRightBower(Suit trumpSuit)
         {
             return rank == Rank.Jack && suit == trumpSuit;
         }
 
-        private bool IsLeftBower(Suit trumpSuit)
+        public bool IsLeftBower(Suit trumpSuit)
         {
             if (rank != Rank.Jack) return false;
 
@@ -90,6 +90,24 @@ namespace GamePlay.Cards
             return suit == Suit.None ? $"<color=red>{rankStr} of No Suit</color>" : $"{rankStr} of {suitStr}";
         }
 
+        public Suit GetEffectiveSuit(Suit trumpSuit)
+        {
+            return rank switch
+            {
+                Rank.Jack when suit == trumpSuit => trumpSuit,
+                Rank.Jack when IsSameColor(suit, trumpSuit) => trumpSuit,
+                _ => suit
+            };
+        }
+
+        public bool IsSameColor(Suit suit1, Suit suit2)
+        {
+            return suit1 is Suit.Clubs or Suit.Spades &&
+                   suit2 is Suit.Clubs or Suit.Spades
+                   ||
+                   suit1 is Suit.Hearts or Suit.Diamonds &&
+                   suit2 is Suit.Hearts or Suit.Diamonds;
+        }
     }
     
     [Serializable]

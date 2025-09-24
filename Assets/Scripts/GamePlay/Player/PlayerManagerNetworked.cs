@@ -199,6 +199,23 @@ namespace GamePlay.Player
                 _gamePlayScreen.UpdateCurrentTricksCountForTeamB(teamBTricks);
             }
         }
+
+        public NetworkTeamData GetMyTeam(int playerIndex)
+        {
+            if (playerIndex == TeamA.player0Index || playerIndex == TeamA.player1Index)
+            {
+                return TeamA;
+            }
+
+            if (playerIndex == TeamB.player0Index || playerIndex == TeamB.player1Index)
+            {
+                return TeamB;
+            }
+
+            Debug.LogError($"Player index {playerIndex} not found in any team!");
+            return default;
+        }
+
     }
 
 }
