@@ -8,7 +8,7 @@ public static class GameLogger
     static GameLogger()
     {
         IsTesting = false;
-        IsTestingNetwork = false;
+        IsTestingNetwork = true;
     }
 
     public enum LogType

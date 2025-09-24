@@ -85,8 +85,9 @@ namespace Ui.MainMenuScreens
             closeButton.onClick.RemoveListener(OnClickClose);
         }
 
-        private void OnClickClose()
+        private async void OnClickClose()
         {
+            await GameManager.RefreshPlayerData();
             UiManager.Instance.HidePanel(this);
         }
         

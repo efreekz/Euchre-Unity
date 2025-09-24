@@ -27,7 +27,7 @@ namespace Managers
             if (value <= 0) return false;
 
             var waitPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
-            var result = await PlayfabManager.Instance.UpdateBalance(value, reason, description, TransectionType.Credit);
+            var result = await AuthManager.Instance.AddBalance(value, reason, description);
             UiManager.Instance.HidePanel(waitPanel);
             
             return result;
@@ -38,7 +38,7 @@ namespace Managers
             if (Freekz - value < 0) return false;
             
             var waitPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
-            var result = await PlayfabManager.Instance.UpdateBalance(-value, reason, description, TransectionType.Debit);
+            var result = await AuthManager.Instance.SubtractBalance(value, reason, description);
             UiManager.Instance.HidePanel(waitPanel);
                 
             return result;

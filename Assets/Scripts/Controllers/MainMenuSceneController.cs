@@ -22,10 +22,10 @@ namespace Controllers
             Instance = this;
         }
 
-        private void Start()
+        private async void Start()
         {
             UiManager.Instance.LoadSceneUi(SceneName.MainMenu);
-
+            await GameManager.CheckForAutomaticLogin();
             GameManager.CheckForWinScreen();
         }
         

@@ -13,7 +13,7 @@ namespace Ui.LoginScene
     public class SignUpScreen : FullScreenView
     {
         public TMP_InputField emailInput;
-        public TMP_InputField usernameInput;
+        // public TMP_InputField usernameInput;
         public TMP_InputField passwordInput;
         public TMP_InputField confirmPasswordInput;
         public TMP_InputField referralInput;
@@ -25,7 +25,7 @@ namespace Ui.LoginScene
         {
             confirmPasswordInput.text = string.Empty;
             emailInput.text = string.Empty;
-            usernameInput.text = string.Empty;
+            // usernameInput.text = string.Empty;
             passwordInput.text = string.Empty;
             referralInput.text = string.Empty;
             ageToggle.isOn = false;
@@ -38,7 +38,7 @@ namespace Ui.LoginScene
         {
             confirmPasswordInput.text = string.Empty;
             emailInput.text = string.Empty;
-            usernameInput.text = string.Empty;
+            // usernameInput.text = string.Empty;
             passwordInput.text = string.Empty;
             referralInput.text = string.Empty;
             ageToggle.isOn = false;
@@ -51,21 +51,18 @@ namespace Ui.LoginScene
         {
             if (!VerifySignupFields()) return;
             
+            var waitPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
+            
             try
             {
-                UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
-                // await AuthManager.Instance.SignUp(emailInput.text, passwordInput.text, referralInput.text, ageToggle.isOn, 
-                //     LoginSceneController.Instance.OnSucessfullLogin, 
-                //     LoginSceneController.Instance.OnLoginFailed);
-
-                await PlayfabManager.Instance.SignUpWithInvitation(emailInput.text, passwordInput.text,
-                    usernameInput.text, referralInput.text, GameManager.OnSucessfullLogin,
-                    GameManager.OnLoginFailed);
+                await AuthManager.Instance.SignUp(emailInput.text, passwordInput.text, referralInput.text, ageToggle.isOn, GameManager.OnSucessfullLogin, GameManager.OnLoginFailed);
             }
             catch (Exception e)
             {
                 GameLogger.LogNetwork(e.Message);
             }
+            
+            UiManager.Instance.HidePanel(waitPanel);
         }
 
         private bool VerifySignupFields()
@@ -73,8 +70,7 @@ namespace Ui.LoginScene
             if (string.IsNullOrWhiteSpace(confirmPasswordInput.text) ||
                 string.IsNullOrWhiteSpace(emailInput.text) ||
                 string.IsNullOrWhiteSpace(passwordInput.text) ||
-                string.IsNullOrWhiteSpace(referralInput.text) ||
-                string.IsNullOrWhiteSpace(usernameInput.text))
+                string.IsNullOrWhiteSpace(referralInput.text))
             {
                 UiManager.Instance.ShowToast("All fields are required.");
                 return false;

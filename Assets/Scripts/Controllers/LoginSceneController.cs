@@ -20,9 +20,11 @@ namespace Controllers
             Instance = this;
         }
         
-        private void Start()
+        private async void Start()
         {
             UiManager.Instance.LoadSceneUi(SceneName.Login);
+            
+            await GameManager.CheckForAutomaticLogin();
             
         }
 

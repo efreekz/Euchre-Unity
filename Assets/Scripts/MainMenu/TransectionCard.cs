@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System;
+using Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,24 +20,30 @@ namespace MainMenu
         public Color debitColor = new Color(1f, 0.8f, 0.8f);  // light red
         public Color neutralBg = Color.white;
 
-        public void Setup(Transections txn)
+        public void Setup(Transaction txn)
         {
-            // reasonText.text = txn.reason;
-            // descriptionText.text = txn.desctiption;
-            // dateText.text = txn.CreatedAt.ToDateTime().ToString("dd MMM yyyy, HH:mm");
-            //
-            // if (txn.transectionType == TransectionType.Credit)
-            // {
-            //     amountText.text = $"+{txn.amount}";
-            //     amountText.color = Color.green;
-            //     background.color = creditColor;
-            // }
-            // else
-            // {
-            //     amountText.text = $"-{txn.amount}";
-            //     amountText.color = Color.red;
-            //     background.color = debitColor;
-            // }
+            reasonText.text = txn.type;
+            descriptionText.text = txn.description;
+            DateTime parsedDate = DateTime.ParseExact(
+                txn.created_at,
+                "yyyy-MM-dd HH:mm:ss",
+                System.Globalization.CultureInfo.InvariantCulture
+            );
+
+            dateText.text = parsedDate.ToString("dd MMM yyyy, HH:mm"); 
+            
+            amountText.text = $"{txn.amount}";
+            
+            if (txn.amount > 0)
+            {
+                amountText.color = Color.green;
+                background.color = creditColor;
+            }
+            else
+            {
+                amountText.color = Color.red;
+                background.color = debitColor;
+            }
         }
     }
 }

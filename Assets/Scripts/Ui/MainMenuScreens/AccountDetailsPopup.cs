@@ -25,8 +25,8 @@ namespace Ui.MainMenuScreens
         
         protected override void Initialize(Object obj)
         {
-            if (PlayfabManager.Instance.CurrentUserData != null)
-                _user = PlayfabManager.Instance.CurrentUserData;
+            if (GameManager.UserData != null)
+                _user = GameManager.UserData;
             else
                 UiManager.Instance.HidePanel(this);
 
@@ -54,7 +54,7 @@ namespace Ui.MainMenuScreens
         
         private void OnClickLogout()
         {
-            PlayfabManager.Instance.LogOut();
+            AuthManager.Instance.LogOut();
             GameManager.LoadScene(SceneName.Login);
         }
 

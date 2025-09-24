@@ -46,10 +46,10 @@ namespace Ui.LoginScene
         {
             if (!VerifyLoginFields()) return;
 
+            var waitPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
             try
             {
-                UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
-                await PlayfabManager.Instance.Login(
+                await AuthManager.Instance.Login(
                     emailInput.text,
                     passwordInput.text,
                     GameManager.OnSucessfullLogin,
@@ -60,6 +60,8 @@ namespace Ui.LoginScene
             {
                 GameLogger.LogNetwork(exception.Message);
             }
+            
+            UiManager.Instance.HidePanel(waitPanel);
         }
 
         private bool VerifyLoginFields()

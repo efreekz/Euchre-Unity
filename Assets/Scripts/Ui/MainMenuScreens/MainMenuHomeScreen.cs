@@ -18,9 +18,10 @@ namespace Ui.MainMenuScreens
         public Button playOnlineButton10;
         public Button playOnlineButton20;
         public Button playOnlineButton40;
-        // public Button playWithBots;
+
         public TMP_Text freekzText;
         public Button transcetionsPanelButton;
+        public Button refreshCoinsButton;
         
         public Button creatPrivateRoomButton;
         public Button joinPrivateRoomButton;
@@ -35,7 +36,7 @@ namespace Ui.MainMenuScreens
             creatPrivateRoomButton.onClick.AddListener(OnClickCreatRoomButton);
             joinPrivateRoomButton.onClick.AddListener(OnClickJoinRoomButton);
             transcetionsPanelButton.onClick.AddListener(OnClickTranscetionsPanelButton);
-            // playWithBots?.onClick.AddListener(OnClickPlayWithBotsButton);
+            refreshCoinsButton.onClick.AddListener(OnClickRefreshCoinsButton);
             
             CurrencyManager.UpdateFreekz += OnUpdateFreekzText;
             
@@ -51,9 +52,15 @@ namespace Ui.MainMenuScreens
             creatPrivateRoomButton.onClick.RemoveListener(OnClickCreatRoomButton);
             joinPrivateRoomButton.onClick.RemoveListener(OnClickJoinRoomButton);
             transcetionsPanelButton.onClick.RemoveListener(OnClickTranscetionsPanelButton);
+            refreshCoinsButton.onClick.RemoveListener(OnClickRefreshCoinsButton);
             
             CurrencyManager.UpdateFreekz -= OnUpdateFreekzText;
 
+        }
+
+        private async void OnClickRefreshCoinsButton()
+        {
+            await GameManager.RefreshPlayerData(); 
         }
         
         private void OnClickTranscetionsPanelButton()

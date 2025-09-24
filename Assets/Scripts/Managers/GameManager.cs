@@ -25,10 +25,19 @@ namespace Managers
         public static int? Fee;
         [CanBeNull] public static GameResult GamesResult;
 
+        public static UserData UserData { get; set; }
+        public static string PromoCode { get; set; }
+
         public static void LoadScene(SceneName sceneName)
         {
+            if (Enum.TryParse<SceneName>(SceneManager.GetActiveScene().name, out var scene))
+            {
+                if (scene == sceneName)
+                    return;
+            }
             SceneManager.LoadScene(sceneName.ToString());
         }
+        
         public static void EndGameResult(NetworkTeamData playerManagerTeamA, NetworkTeamData playerManagerTeamB, int playerIndex)
         {
             NetworkTeamData winningTeam;
@@ -86,18 +95,46 @@ namespace Managers
 
             GamesResult = null;
         }
+
+        public static async UniTask RefreshPlayerData()
+        {
+            if (AuthManager.Instance && AuthManager.Instance.IsLoggedIn())
+            {
+                var waitingPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
+                GameLogger.LogNetwork("Trying to login");
+                await AuthManager.Instance.FetchUserData(GameManager.OnSucessfullLogin, GameManager.OnLoginFailed);
+                
+                UiManager.Instance.HidePanel(waitingPanel);
+            }
+        }
         
+        public static async UniTask CheckForAutomaticLogin()
+        {
+            if (AuthManager.Instance && AuthManager.Instance.IsLoggedIn() && UserData == null)
+            {
+                var waitingPanel = UiManager.Instance.ShowPanel(UiScreenName.WaitingPanel, null);
+                GameLogger.LogNetwork("Trying to login");
+                await AuthManager.Instance.FetchUserData(OnSucessfullLogin, OnLoginFailed);
+                
+                UiManager.Instance.HidePanel(waitingPanel);
+            }
+        }
+
         
-        public static void OnSucessfullLogin()
+        public static void OnSucessfullLogin(LoginResponse response)
         {
             GameLogger.LogNetwork("Login successful!");
-            // FirebaseManager.Instance.ListenToBalanceChanges();
             
-            GameManager.LoadScene(SceneName.MainMenu);
+            UserData = response.user;
+            PromoCode = response.promo_code;
+            CurrencyManager.Freekz = response.balance;
+            
+            LoadScene(SceneName.MainMenu);
         }
 
         public static void OnLoginFailed(string error)
         {
+            LoadScene(SceneName.Login);
             UiManager.Instance.ShowToast(error);
         }
     }
